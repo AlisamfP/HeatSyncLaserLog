@@ -2,4 +2,5 @@
 //makes a variable named Todos within your browser's JavaScript environment
 window.Todos = Ember.Application.create();
 
-// Todos.ApplicationAdapter = DS.FixtureAdapter.extend();
+//Sets your application's ApplicationAdapter as an extension of the DS.FixtureAdapter
+Todos.ApplicationAdapter = DS.FixtureAdapter.extend();
