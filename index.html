@@ -5,15 +5,20 @@
     <title>HSL Laser Log</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
-<body>
     <script type="text/x-handlebars" data-template-name="material">
+<body>
     <header id="header">
-      <h1>Materials</h1>
+      <h1>Approved Materials</h1>
     </header>
-    <section id="materials">
+    <section id="material">
         <ul id="material-list">
             {{#each}}
-            <li>{{title}}</li>
+            <li>{{#link-to 'material.projects'}}{{title}}{{/link-to}}</li>
+                {{#if note}}
+                    <ul>
+                        <li>{{note}}</li>
+                    </ul>
+                {{/if}}
             {{/each}}
         </ul>
     </section>
