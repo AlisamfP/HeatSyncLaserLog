@@ -22,7 +22,8 @@
           name: 'Acrylic',
           note: '',
           projects : [{
-            time: "8/8/2014 19:06:42",
+            date: "8/8/2014",
+            time: "19:06:42",
             userName: 'Alisa Palson',
             projectName: 'dickbutts',
             material: 'Acrylic',
@@ -39,7 +40,8 @@
             notes: 'word'
           },
           {
-            time: "8/7/2014 16:33:24",
+            date: "8/7/2014",
+            time: "16:33:24",
             userName: 'Dan Puffer',
             projectName: 'Blanket Puzzle',
             material: 'Acrylic',

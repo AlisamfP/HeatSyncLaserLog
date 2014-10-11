@@ -24,40 +24,62 @@
         <a ng-click="tabber.setTab(0)" ng-href="#">
           Edit</a>
       </li>
-      <ul>
+      </ul>
       </ul>
       <div class="container-fluid">
         <div class="addInfoArea" ng-show="tabber.checkTab(0)">
-            <form class="form-hoizontal" role="form">
+            <form class="form" role="form">
               <legend>Add New Cut</legend>
-              <div class="form-inline">
-                <label>
+              <div class="form-group">
+                <label for="userName">
                   User Name
                 </label>
-                <input type="text" class="form-control" placeholder="Enter Username Here.">
-              <!-- <div class="form-group form-inline"> -->
-                <label>
+                <input type="text" class="form-control" placeholder="Enter Username Here." id="userName">
+              </div>
+              <div class="form-group">
+                <label for="projectName">Project Title
+                </label>
+                <input type="text" class="form-control" placeholder="Enter Project Title Here." id="projectName">
+              </div>
+              <div class="form-group">
+                <label for="time">
+                  Time
+                </label>
+                <input type="time" class="form-control" id="time">
+                </div>
+                <div class="form-group">
+                <label for="date">
                   Date
                 </label>
-                  <input type="date" class="form-control">
-                  <label>
-                    Time
-                  </label>
-                  <input type="time" class="form-control">
-              <!-- </div> -->
+                <input type="date" class="form-control" id="date">
               </div>
               <div class="form-group">
-                <label>Project Title</label>
-                <input type="text" class="form-control" placeholder="Enter Project Title Here.">
-              </div>
-              <div class="form-group">
-                <label>
+                <label for="material">
                   Material: 
                 </label>
                 <select name="material" class="form-control">
                   <option ng-repeat="material in log.materials">{{material.name}}</option>
                 </select>
               </div>
+              <div class="form-group">
+                <label for="thickness">
+                  Thickness (in mm)
+                </label>
+                <input type="number" class="form-control" id="thickness">
+              </div>
+              <div class="form-group">
+                <label for="speed">
+                  Cut Speed
+                </label>
+                <input type="number" class="form-control" id="speed">
+              </div>
+              <div class="form-group">
+                <label for="power">
+                  Cut Power
+                </label>
+                <input type="number" class="form-control" id="power">
+              </div>
+
             </form>
         </div>
         <div class="container" ng-repeat="material in log.materials">
