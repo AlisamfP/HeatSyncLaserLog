@@ -28,16 +28,23 @@
       </ul>
       <div class="container-fluid">
         <div class="addInfoArea" ng-show="tabber.checkTab(0)">
-            <form role="form">
-              <div class="form-group">
+            <form class="form-hoizontal" role="form">
+              <legend>Add New Cut</legend>
+              <div class="form-inline">
                 <label>
                   User Name
                 </label>
                 <input type="text" class="form-control" placeholder="Enter Username Here.">
-              </div>
-              <div class="form-group">
+              <!-- <div class="form-group form-inline"> -->
                 <label>
+                  Date
                 </label>
+                  <input type="date" class="form-control">
+                  <label>
+                    Time
+                  </label>
+                  <input type="time" class="form-control">
+              <!-- </div> -->
               </div>
               <div class="form-group">
                 <label>Project Title</label>
@@ -47,7 +54,7 @@
                 <label>
                   Material: 
                 </label>
-                <select name="material">
+                <select name="material" class="form-control">
                   <option ng-repeat="material in log.materials">{{material.name}}</option>
                 </select>
               </div>
