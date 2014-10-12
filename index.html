@@ -11,9 +11,10 @@
       <h2 class="text-center"> - an Angular project - </h2>
     </header>
 <body ng-controller="LogController as log" style="padding: 10px 200px 200px 200px">
-  <!-- Material Container -->
   <div class="list-group">
     <div class="list-group-item" ng-controller="TabController as tabber">
+
+<!-- Navigation  -->
     <ul class="nav nav-pills">
       <li ng-repeat="material in log.materials" ng-class="{ active: tabber.checkTab(material.id) }">
         <a ng-click="tabber.setTab(material.id)" ng-href="#">
@@ -26,60 +27,61 @@
           Edit</a>
       </li>
       </ul>
+<!-- Form to Add New Cut -->
       <div class="container-fluid">
         <div class="addInfoArea" ng-show="tabber.checkTab(null)">
             <form class="form" name="LaserForm" role="form" ng-controller="CutController as cutCtrl" ng-submit="LaserForm.$valid && cutCtrl.addNewCut(cutCtrl.cut.material)" novalidate>
               <legend>Add New Cut</legend>
               <div class="form-group">
-                <label for="userName">
-                  User Name
-                </label>
-                <input type="text" name="userName" class="form-control" placeholder="What's your name?" ng-model="cutCtrl.cut.userName" required/>
-              </div>
-              <div class="form-group">
-                <label for="projectName">Project Title
-                </label>
-                <input type="text" name="projectName" class="form-control" placeholder="What's the name of your project?" ng-model="cutCtrl.cut.projectName" />
-              </div>
-              <div class="form-group">
-                <label for="time">
-                  Time
-                </label>
-                <input type="time" name="time" class="form-control" ng-model="cutCtrl.cut.time" required/>
+                  <label for="userName">
+                    User Name
+                  </label>
+                  <input type="text" name="userName" class="form-control" placeholder="What's your name?" ng-model="cutCtrl.cut.userName" required/>
                 </div>
                 <div class="form-group">
-                <label for="date">
-                  Date
-                </label>
-                <input type="date" name="date" class="form-control" ng-model="cutCtrl.cut.date" required/>
-              </div>
-              <div class="form-group">
-                <label for="material">
-                  Material: 
-                </label>
-                <select name="material" class="form-control" ng-model="cutCtrl.cut.material">
-                  <option ng-repeat="material in log.materials">{{material.name}}</option>
-                </select required>
-              </div>
-              <div class="form-group">
-                <label for="thickness">
-                  Thickness (in mm)
-                </label>
-                <input type="number" name="thickness" class="form-control" ng-model="cutCtrl.cut.thickness" required/>
-              </div>
-              <div class="form-group">
-                <label for="speed">
-                  Cut Speed
-                </label>
-                <input type="number" name="speed" class="form-control" ng-model="cutCtrl.cut.speed" required/>
-              </div>
-              <div class="form-group">
-                <label for="power">
-                  Cut Power
-                </label>
-                <input type="number" name="power" class="form-control" ng-model="cutCtrl.cut.power" required/>
-              </div>
-              <div class="form-group">
+                  <label for="projectName">Project Title
+                  </label>
+                  <input type="text" name="projectName" class="form-control" placeholder="What's the name of your project?" ng-model="cutCtrl.cut.projectName" />
+                </div>
+                <div class="form-group">
+                  <label for="time">
+                    Time
+                  </label>
+                  <input type="time" name="time" class="form-control" ng-model="cutCtrl.cut.time" required/>
+                  </div>
+                  <div class="form-group">
+                  <label for="date">
+                    Date
+                  </label>
+                  <input type="date" name="date" class="form-control" ng-model="cutCtrl.cut.date" required/>
+                </div>
+                <div class="form-group">
+                  <label for="material">
+                    Material: 
+                  </label>
+                  <select name="material" class="form-control" ng-model="cutCtrl.cut.material">
+                    <option ng-repeat="material in log.materials">{{material.name}}</option>
+                  </select required>
+                </div>
+                <div class="form-group">
+                  <label for="thickness">
+                    Thickness (in mm)
+                  </label>
+                  <input type="number" name="thickness" class="form-control" ng-model="cutCtrl.cut.thickness" required/>
+                </div>
+                <div class="form-group">
+                  <label for="speed">
+                    Cut Speed
+                  </label>
+                  <input type="number" name="speed" class="form-control" ng-model="cutCtrl.cut.speed" required/>
+                </div>
+                <div class="form-group">
+                  <label for="power">
+                    Cut Power
+                  </label>
+                  <input type="number" name="power" class="form-control" ng-model="cutCtrl.cut.power" required/>
+                </div>
+                <div class="form-group">
                 <label for="engrave">
                   Engrave?
                 </label>
@@ -93,7 +95,6 @@
                   <label for="scanGap">Scan Gap</label>
                   <input type="number" name="scanGap" ng-model="cutCtrl.cut.engrave.scanGap" />
               </div>
-              <div> LaserForm is {{LaserForm.$valid}}</div>
               <div class="form-group">
                 <label for="submit">
                   Done? 
@@ -102,6 +103,7 @@
               </div>
             </form>
         </div>
+<!-- Table for Cuts -->
         <div class="container" ng-repeat="material in log.materials">
         <table class="table" ng-show="tabber.checkTab(material.id)">
           <tr>
@@ -118,11 +120,11 @@
               <a href="" ng-click="predicate = 'power'; reverse=!reverse">Cut Power</a>
             </th>
           </tr>
-          <tr ng-repeat="info in cuts | orderBy:predicate:reverse">
-            <td>{{info.userName}}</td>
-            <td>{{info.thickness}}</td>
-            <td>{{info.speed}}</td>
-            <td>{{info.power}}</td>
+          <tr ng-repeat="cut in material.cuts | filter:{ material : cut.material} | orderBy:predicate:reverse">
+            <td>{{cut.userName}}</td>
+            <td>{{cut.thickness}}</td>
+            <td>{{cut.speed}}</td>
+            <td>{{cut.power}}</td>
           </tr>
         </table>
       </div>

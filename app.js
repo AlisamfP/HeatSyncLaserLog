@@ -3,7 +3,6 @@
 
     app.controller('LogController', function(){
         this.materials = materials;
-        this.cuts = cuts;
     });
 
     app.controller('TabController', function(){
@@ -18,53 +17,27 @@
 
     app.controller('CutController', function(){
       this.cut = {};
-      this.addNewCut = function(){
+      this.addNewCut = function(material){
         this.cut.timestamp = Date.now();
-        cuts.push(this.cut);
+        material.cuts.push(this.cut);
         this.cut = {};
-      }
+      };
 
-    })
+    });
+
+    // app.directive('cutData', function(){
+    //   return{
+    //     restrict: 'E',
+    //     templateUrl: 'cut-data.html'
+    //   };
+    // });
+
 
     var materials = [
         {id: 0,
           name: 'Acrylic',
-          note: ''
-        },
-        {id: 1,
-          name: 'Anodized Aluminum',
-          note: 'etching only'
-        },
-        {id: 2,
-          name: 'Corrugated Cardboard',
-          note: ''
-        },
-        {id: 3,
-          name: 'Glass',
-          note: 'etching only'
-        },
-        {id: 4,
-          name: 'Leather',
-          note: 'naturally dyed only'
-        },
-        {id: 5,
-          name: 'MDF',
-          note: ''
-        },
-        {id: 6,
-          name: 'Paper',
-          note: ''
-        },
-        {id: 7,
-          name: 'Plywood',
-          note: ''
-        },
-        {id: 8,
-          name: 'Fabric',
-          note: ''
-        }
-    ];
-var cuts = [{
+          note: '',
+          cuts: [{
   date: "8/8/2014",
   time: "19:06:42",
   userName: 'Alisa Palson',
@@ -96,6 +69,55 @@ var cuts = [{
   engrave: { },
   notes: ''
 }]
+        },
+        {id: 1,
+          name: 'Anodized Aluminum',
+          note: 'etching only'
+        },
+        {id: 2,
+          name: 'Corrugated Cardboard',
+          note: ''
+        },
+        {id: 3,
+          name: 'Glass',
+          note: 'etching only'
+        },
+        {id: 4,
+          name: 'Leather',
+          note: 'naturally dyed only'
+        },
+        {id: 5,
+          name: 'MDF',
+          note: '',
+          cuts: [
+          {
+            date: "10/11/2014",
+            time: "14:33:24",
+            userName: 'Penny The Cat',
+            projectName: 'Cat Things',
+            material: '',
+            thickness: 3,
+            speed: 20,
+            power: 500,
+            totalTime: 30,
+            numPasses: '',
+            engrave: { },
+            notes: ''
+        }]
+        },
+        {id: 6,
+          name: 'Paper',
+          note: ''
+        },
+        {id: 7,
+          name: 'Plywood',
+          note: ''
+        },
+        {id: 8,
+          name: 'Fabric',
+          note: ''
+        }
+    ];
 
 
 })();
