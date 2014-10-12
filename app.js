@@ -3,11 +3,11 @@
 
     app.controller('LogController', function(){
         this.materials = materials;
-        this.projects = projects;
+        this.cuts = cuts;
     });
 
     app.controller('TabController', function(){
-        this.tab = 0;
+        this.tab = null;
         this.setTab = function(setTab){
             this.tab = setTab;
         };
@@ -16,109 +16,88 @@
         };
     });
 
+    app.controller('CutController', function(){
+      this.cut = {};
+      this.addNewCut = function(){
+        this.cut.timestamp = Date.now();
+        cuts.push(this.cut);
+        this.cut = {};
+      }
+
+    })
 
     var materials = [
-        {id: 1,
+        {id: 0,
           name: 'Acrylic',
-          note: '',
-          projects : [{
-            date: "8/8/2014",
-            time: "19:06:42",
-            userName: 'Alisa Palson',
-            projectName: 'dickbutts',
-            material: 'Acrylic',
-            thickness: 6,
-            speed: 10,
-            power: 40,
-            totalTime: 25,
-            numPasses: 1,
-            engrave: {
-                cut: 30,
-                power: 300,
-                scanGap: 0.1,
-            },
-            notes: 'word'
-          },
-          {
-            date: "8/7/2014",
-            time: "16:33:24",
-            userName: 'Dan Puffer',
-            projectName: 'Blanket Puzzle',
-            material: 'Acrylic',
-            thickness: 6,
-            speed: 10,
-            power: 50,
-            totalTime: 120,
-            numPasses: '',
-            engrave: { },
-            notes: ''
-          }]
+          note: ''
         },
-        {id: 2,
+        {id: 1,
           name: 'Anodized Aluminum',
           note: 'etching only'
         },
-        {id: 3,
+        {id: 2,
           name: 'Corrugated Cardboard',
           note: ''
         },
-        {id: 4,
+        {id: 3,
           name: 'Glass',
           note: 'etching only'
         },
-        {id: 5,
+        {id: 4,
           name: 'Leather',
           note: 'naturally dyed only'
         },
-        {id: 6,
+        {id: 5,
           name: 'MDF',
           note: ''
         },
-        {id: 7,
+        {id: 6,
           name: 'Paper',
           note: ''
         },
-        {id: 8,
+        {id: 7,
           name: 'Plywood',
           note: ''
         },
-        {id: 9,
+        {id: 8,
           name: 'Fabric',
           note: ''
         }
     ];
+var cuts = [{
+  date: "8/8/2014",
+  time: "19:06:42",
+  userName: 'Alisa Palson',
+  projectName: 'dickbutts',
+  material: 'Acrylic',
+  thickness: 6,
+  speed: 10,
+  power: 40,
+  totalTime: 25,
+  numPasses: 1,
+  engrave: {
+      cut: 30,
+      power: 300,
+      scanGap: 0.1,
+  },
+  notes: 'word'
+},
+{
+  date: "8/7/2014",
+  time: "16:33:24",
+  userName: 'Dan Puffer',
+  projectName: 'Blanket Puzzle',
+  material: 'Acrylic',
+  thickness: 6,
+  speed: 10,
+  power: 50,
+  totalTime: 120,
+  numPasses: '',
+  engrave: { },
+  notes: ''
+}]
 
 
-    var projects = [{
-            time: "8/8/2014 19:06:42",
-            userName: 'Alisa Palson',
-            projectName: 'dickbutts',
-            material: 'Acrylic',
-            thickness: 6,
-            speed: 10,
-            power: 40,
-            totalTime: 25,
-            numPasses: 1,
-            engrave: {
-                cut: 30,
-                power: 300,
-                scanGap: 0.1,
-            },
-            notes: 'word'
-          },
-          {
-            time: "8/7/2014 16:33:24",
-            userName: 'Dan Puffer',
-            projectName: 'Blanket Puzzle',
-            material: 'Acrylic',
-            thickness: 6,
-            speed: 10,
-            power: 50,
-            totalTime: 120,
-            numPasses: '',
-            engrave: { },
-            notes: ''
-          }]
 })();
 
 
