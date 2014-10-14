@@ -1,0 +1,14 @@
+<ul class="nav nav-pills">
+  <li ng-repeat="material in log.materials" ng-class="{ active: tabber.checkTab(material.id) }">
+    <a ng-click="tabber.setTab(material.id)" ng-href="#">
+      {{material.name}}
+    </a>
+  </li>
+</ul>
+<ul class="nav nav-pills nav-right">
+  <li>
+    <a ng-click="tabber.setTab(null)" ng-href="#">
+      Edit
+    </a>
+  </li>
+</ul>

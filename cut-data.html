@@ -1,4 +1,25 @@
-<td>{{info.userName}}</td>
-<td>{{info.thickness}}</td>
-<td>{{info.speed}}</td>
-<td>{{info.power}}</td>
+<table class="table">
+  <tr ng-show="material.note.length">
+    <th>{{material.note}}</th>
+  </tr>
+  <tr>
+  <th>
+    <a href="" ng-click="predicate = 'name'; reverse=false">Name</a>(<a href="" ng-click="predicate = '-name'; reverse=false">^</a>)
+  </th>
+  <th>
+    <a href="" ng-click="predicate = 'thickness'; reverse=!reverse">Thickness (in mm)</a>
+  </th>
+  <th>
+    <a href="" ng-click="predicate = 'cut'; reverse=!reverse">Cut Speed</a>
+  </th>
+  <th>
+    <a href="" ng-click="predicate = 'power'; reverse=!reverse">Cut Power</a>
+  </th>
+</tr>
+ <tr ng-repeat="cut in material.cuts | orderBy:predicate:reverse">
+    <td>{{cut.userName}}</td>
+    <td>{{cut.thickness}}</td>
+    <td>{{cut.speed}}</td>
+    <td>{{cut.power}}</td>
+  </tr>
+</table>
