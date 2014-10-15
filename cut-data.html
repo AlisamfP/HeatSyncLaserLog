@@ -4,22 +4,55 @@
   </tr>
   <tr>
   <th>
+    <label for="engrave">Engrave?</label>
+    <input type="checkbox" name="engrave" ng-model="showEngrave">
+  </th>
+  <tbody ng-show="!showEngrave">
+  <th>
     <a href="" ng-click="predicate = 'name'; reverse=false">Name</a>(<a href="" ng-click="predicate = '-name'; reverse=false">^</a>)
   </th>
   <th>
     <a href="" ng-click="predicate = 'thickness'; reverse=!reverse">Thickness (in mm)</a>
   </th>
   <th>
-    <a href="" ng-click="predicate = 'cut'; reverse=!reverse">Cut Speed</a>
+    <a href="" ng-click="predicate = 'speed'; reverse=!reverse">Cut Speed</a>
   </th>
   <th>
     <a href="" ng-click="predicate = 'power'; reverse=!reverse">Cut Power</a>
   </th>
+</tbody>
+  <!-- ENGRAVE LABELS -->
+  <tbody ng-show="showEngrave">
+    <th>
+    <a href="" ng-click="predicate = 'name'; reverse=false">Name</a>(<a href="" ng-click="predicate = '-name'; reverse=false">^</a>)
+  </th>
+  <th>
+    <a href="" ng-click="predicate = 'thickness'; reverse=!reverse">Thickness (in mm)</a>
+  </th>
+  <th>
+    <a href="" ng-click="predicate = 'engraveSpeed'; reverse=!reverse">
+    Engrave Speed
+  </a>
+  </th>
+    <th>
+      <a href="" ng-click="predicate = 'engravePower'; reverse=!reverse">
+    Engrave Power
+  </a>
+  </th>
+    <th>
+      <a href="" ng-click="predicate = 'engraveScanGap'; reverse=!reverse">
+    Scan Gap
+  </a>
+  </th>
+  </tbody>
 </tr>
  <tr ng-repeat="cut in material.cuts | orderBy:predicate:reverse">
     <td>{{cut.userName}}</td>
     <td>{{cut.thickness}}</td>
-    <td>{{cut.speed}}</td>
-    <td>{{cut.power}}</td>
+    <td ng-show="!showEngrave">{{cut.speed}}</td>
+    <td ng-show="!showEngrave">{{cut.power}}</td>
+    <td ng-show="showEngrave">{{cut.engraveSpeed}}</td>
+    <td ng-show="showEngrave">{{cut.engravePower}}</td>
+    <td ng-show="showEngrave">{{cut.engraveScanGap}}</td>
   </tr>
 </table>
