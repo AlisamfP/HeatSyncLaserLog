@@ -8,11 +8,11 @@
    <script type="text/javascript" src="/libs/lodash.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
   </head>
-    <header>
+  <header>
       <h1 class="text-center">HeatSync Laser Log</h1>
       <h2 class="text-center"> - an Angular project - </h2>
-    </header>
-<body ng-controller="LogController as log" style="padding: 10px 200px 200px 200px">
+  </header>
+  <body ng-controller="LogController as log" style="padding: 10px 200px 200px 200px">
   <div class="list-group">
     <div class="list-group-item" ng-controller="TabController as tabber">
     <tab-control></tab-control>
@@ -23,12 +23,12 @@
         </div>
 <!-- Table for Cuts -->
         <div class="container" ng-repeat="material in log.materials">
-        <cut-data ng-show="tabber.checkTab(material.id)">
-        </cut-data>
+          <cut-data ng-show="tabber.checkTab(material.id)">
+          </cut-data>
+        </div>
       </div>
+    </div>
   </div>
-  </div>
-  </div>
-</body>
+  </body>
 </html>
 

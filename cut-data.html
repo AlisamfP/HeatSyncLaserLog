@@ -1,12 +1,16 @@
 <table class="table">
-  <tr ng-show="material.note.length">
-    <th>{{material.note}}</th>
-  </tr>
+  <!-- <tr> -->
+    <thead>
+      <label for="engrave">
+        Engrave?
+      </label>
+      <input type="checkbox" name="engrave" ng-model="showEngrave">
+    <th ng-show="material.note.length">
+      {{material.note}}
+    </th>
+    </thead>
+  <!-- </tr> -->
   <tr>
-  <th>
-    <label for="engrave">Engrave?</label>
-    <input type="checkbox" name="engrave" ng-model="showEngrave">
-  </th>
   <tbody ng-show="!showEngrave">
   <th>
     <a href="" ng-click="predicate = 'name'; reverse=false">Name</a>(<a href="" ng-click="predicate = '-name'; reverse=false">^</a>)
