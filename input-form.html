@@ -1,5 +1,5 @@
 <form class="form" name="LaserForm" role="form" ng-submit="LaserForm.$valid && cutCtrl.addNewCut(cutCtrl.cut.material)" novalidate>
-  <legend>Add New Cut</legend>
+  <legend class="text-center">Add New Cut</legend>
   <div class="form-group">
     <label for="userName">
       User Name
@@ -63,10 +63,8 @@
     <label for="scanGap">Scan Gap</label>
     <input type="number" name="scanGap" ng-model="cutCtrl.cut.engraveScanGap" />
   </div>
-  <div class="form-group">
-  <label for="submit">
-    Done? 
-  </label>
-  <input type="submit" />
+  <div class="form-group form-inline">
+  <input class="btn btn-submit" type="submit" />
+  <input class="btn btn-reset pull-right" type="reset" />
   </div>
 </form>
